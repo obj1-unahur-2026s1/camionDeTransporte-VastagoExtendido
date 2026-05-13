@@ -45,6 +45,7 @@ object contenedor {
     method pesoDeCosasContenidas() = cosasContenidas.sum({c=>c.peso()}) 
     method nivelDePeligrosidad() = if(! cosasContenidas.isEmpty()) self.cosasContenidasMasPeligrosa().nivelDePeligrosidad()  
     method cosasContenidasMasPeligrosa() = cosasContenidas.max({c=>c.nivelDePeligrosidad()})
+    method meterElementos(listaDeElemntos) {cosasContenidas.addAll(listaDeElemntos)}
 }
 
 object residuos {

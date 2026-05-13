@@ -1,9 +1,12 @@
 import cosas.*
 
-describe "group of test for cosas" {
+describe "test paquete, bateria, contenedor y embalaje" {
 
-  test "first test" {
-    assert.that(true)
+  test "el contenedor pesa 960 si le metemos embalaje,residuos y bumblebee" {
+  residuos.peso(30)
+  embalaje.cambiarCosaQueEnvuelve(residuos)
+  contenedor.meterElementos([embalaje, residuos, bumblebee])
+  assert.equals(30 + 30 + 800 + 100, contenedor.peso())
   }
 
 }

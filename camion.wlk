@@ -5,6 +5,7 @@ object camion {
 
     method cargar(unObjeto) {cosasCargadas.add(unObjeto)}
     method descargar(unObjeto) {cosasCargadas.remove(unObjeto)}
+    method cargarCosas(unaLista) {cosasCargadas.addAll(unaLista)}
 
     method peso() = 1000 + cosasCargadas.sum({c => c.peso()})
 
@@ -34,4 +35,8 @@ object camion {
         return !self.estaExcedidoDePeso() and 
         self.cosasQueSuperanPeligrosidad(nivelMaximo).isEmpty()
     }
+
+    method algunaCargaPesaEntre(min, max) = cosasCargadas.any({c=>c.peso()}).between(min, max)
+
+    method cargaMasPesada() = cosasCargadas.max({c=>c.peso()})
 }
