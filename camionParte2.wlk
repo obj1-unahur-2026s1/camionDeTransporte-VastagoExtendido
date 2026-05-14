@@ -8,6 +8,9 @@ object camion {
         unObjeto.consecuenciaDeLaCarga()
     }
 
+    method cantidadTotalDeBultos() = cosasCargadas.sum({c=>c.bultos()})
+
+
     method descargar(unObjeto) {cosasCargadas.remove(unObjeto)}
 
     method cargarCosas(unaLista) {
@@ -44,6 +47,5 @@ object camion {
     }
 
     method algunaCargaPesaEntre(min, max) = cosasCargadas.any({c=>c.peso()}).between(min, max)
-
     method cargaMasPesada() = cosasCargadas.max({c=>c.peso()})
 }
